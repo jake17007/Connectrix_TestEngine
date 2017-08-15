@@ -9,16 +9,15 @@ fitbitData = data[0]['fitbit']
 profileData = fitbitData[0]['profile']
 userData = profileData[0]['user']
 
-# Perform calculations on Fitbit data
-bodyInfo = {
-    'weight': round(userData['weight'] * 2.2, 2),
-    'height': round(userData['height'] / 2.54, 2),
-    'bmi': round(userData['weight'] / ((userData['height']/100)**2), 2)
-}
+# Parse Fitbit data
+displayName = userData['displayName']
+weight = round(userData['weight'] * 2.2, 2)
+height = round(userData['height'] / 2.54, 2)
 
+greeting = displayName
 
 # Format into html (with bootstrap)
-html = '<div class="container">Weight: ' + str(bodyInfo['weight']) + '<br>Height: ' + str(bodyInfo['height']) + '<br>BMI: ' + str(bodyInfo['bmi']) + '</div>'
+html = '<div class="container">' + greeting + '<br>Weight: ' + str(weight) + '<br>Height: ' + str(height) + '</div>'
 
 # Output
 print(json.dumps({'html': html}))
