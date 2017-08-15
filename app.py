@@ -17,7 +17,7 @@ height = round(userData['height'] / 2.54, 2)
 greeting = displayName
 
 # Format into html (with bootstrap)
-html = '<div class="container">' + greeting + '<br>Weight: ' + str(weight) + '<br>Height: ' + str(height) + '</div>'
+html = '<div class="container" style="padding-top: 20px">' + greeting + '<br>Weight: ' + str(weight) + '<br>Height: ' + str(height) + '</div>'
 
 # Output
 print(json.dumps({'html': html}))
